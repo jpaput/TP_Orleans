@@ -3,6 +3,7 @@ package com.supinfo.tporleans.details
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.supinfo.tporleans.R
 import com.supinfo.tporleans.core.model.Cocktail
 import com.supinfo.tporleans.list.ListCocktailsActivity.Companion.EXTRA_COCKTAIL_DATA
@@ -16,7 +17,10 @@ class DetailCocktailActivity : AppCompatActivity() {
 
         val cocktail : Cocktail = intent?.getSerializableExtra(EXTRA_COCKTAIL_DATA) as Cocktail
 
-        cocktailName.text = cocktail.name
-        cocktailImageView.setImageDrawable(getDrawable(cocktail.drawable))
+        cocktailName.text = cocktail.strDrink
+
+        Glide.with(this)
+            .load(cocktail.strDrinkThumb)
+            .into(cocktailImageView)
     }
 }

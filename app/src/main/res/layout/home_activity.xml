@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/coktail_cpy"
+    tools:context=".home.HomeActivity">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/standard_textsize"
+            android:text="@string/welcome_title_text"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/instruction_tv"/>
+
+        <TextView
+            android:id="@+id/instruction_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/standard_textsize"
+            android:layout_marginRight="@dimen/margin_standard"
+            android:layout_marginLeft="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/searchEditText"
+            android:gravity="center_horizontal"
+            android:text="@string/detail_text"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_standard"
+            android:layout_marginLeft="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_standard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:saveEnabled="false"
+            android:textColor="@android:color/white"
+            android:hint="@string/hint_cocktail_name"/>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginRight="@dimen/margin_standard"
+            android:layout_marginLeft="@dimen/margin_standard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchEditText"
+            android:text="@string/search_text"
+            android:textColor="@android:color/white"
+            android:background="@color/search_button_color_selector"/>
+
+
+    <Button
+        android:id="@+id/discoverButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignParentBottom="true"
+        android:text="@string/discover_cocktail_textButton"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/discover_button_color_selector"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

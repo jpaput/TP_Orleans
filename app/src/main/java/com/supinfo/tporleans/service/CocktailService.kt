@@ -1,12 +1,23 @@
 package com.supinfo.tporleans.service
 
+import androidx.annotation.WorkerThread
+import com.supinfo.tporleans.core.ApiEndPoint
+import com.supinfo.tporleans.core.helper.NetworkUtil
 import com.supinfo.tporleans.core.model.CocktailWrapper
-import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Query
+import com.supinfo.tporleans.core.viewmodels.CocktailViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-interface CocktailService {
+class CocktailService(val viewModel : CocktailViewModel) {
 
-    @GET("search.php")
-    suspend fun getCocktail(@Query("f") car : String) : Response<CocktailWrapper>
+    fun getCocktail(search : String?){
+            CoroutineScope(Dispatchers.IO).launch {
+                val retroFitEndpoint = NetworkUtil.getRetrofit().create(ApiEndPoint::class.java)
+
+                viewModel.setData(
+                    retroFitEndpoint.getCocktail(search).body() ?: CocktailWrapper(emptyList()))
+
+            }
+    }
 }

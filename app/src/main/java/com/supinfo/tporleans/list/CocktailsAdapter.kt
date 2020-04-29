@@ -10,18 +10,11 @@ import com.supinfo.tporleans.R
 import com.supinfo.tporleans.core.model.Cocktail
 import kotlinx.android.synthetic.main.cocktail_item_view.view.*
 
-class CocktailsAdapter(val context: Context, val listener: OnCocktailSeletedListener)
+class CocktailsAdapter(private val cocktails: List<Cocktail>, val context: Context, val listener: OnCocktailSeletedListener)
     : RecyclerView.Adapter<CocktailsAdapter.ViewHolder>() {
-
-
-    private  var cocktails : List<Cocktail> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailsAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.cocktail_item_view, parent, false))
-    }
-
-    fun setCocktails(data : List<Cocktail>) {
-        cocktails = data;
     }
 
     override fun getItemCount(): Int {

@@ -47,7 +47,8 @@ class ListCocktailsActivity : AppCompatActivity(), OnCocktailSeletedListener {
     override fun onResume() {
         super.onResume()
 
-        CocktailService(viewModel).getCocktail(search)
+        CocktailService(viewModel, application)
+            .getCocktail(search)
     }
 
     override fun onCocktailSelected(cocktail: Cocktail) {

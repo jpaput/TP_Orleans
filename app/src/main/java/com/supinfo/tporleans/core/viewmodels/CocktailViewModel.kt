@@ -10,8 +10,8 @@ class CocktailViewModel (app : Application) : AndroidViewModel(app) {
 
     var cocktailData = MutableLiveData<List<Cocktail>>()
 
-    public fun setData(cocktailWrapper : CocktailWrapper){
-        cocktailData.postValue(cocktailWrapper.cocktails)
+    public fun setData(cocktails : List<Cocktail>){
+        cocktailData.postValue(cocktails)
     }
 
 }
